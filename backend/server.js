@@ -10,20 +10,21 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+const dns = require("dns");
 
-// MongoDB connection
+dns.setServers([
+  "8.8.8.8",
+  "1.1.1.1"
+]);
+
 mongoose
-    .connect("mongodb://127.0.0.1:27017/mernPagination")
-    .then(() => {
-
-        console.log("MongoDB connected");
-
-    })
-    .catch((error) => {
-
-        console.log("MongoDB error:", error);
-
-    });
+  .connect("mongodb+srv://sundarsrini1905_db_user:9f8IxBDU4FrcQWtk@cluster0.m2uyoqr.mongodb.net/mernPagination?retryWrites=true&w=majority")
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((error) => {
+    console.log("MongoDB error:", error);
+  });
 
 // Routes
 app.use("/api", productRoutes);
