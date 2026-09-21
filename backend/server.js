@@ -26,6 +26,10 @@ mongoose
     console.log("MongoDB error:", error);
   });
 
+
+  app.get("/",async (req,res) => {
+    res.json({message:"hello mern pagination"})
+  })
 // Routes
 app.use("/api", productRoutes);
 
