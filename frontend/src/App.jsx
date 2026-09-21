@@ -28,7 +28,7 @@ function App() {
         try {
 
             const response = await axios.get(
-                "http://localhost:5000/api/products",
+                "https://pagination-backend-u925.onrender.com/api/products",
                 {
                     params: {
                         page,
